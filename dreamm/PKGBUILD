@@ -1,0 +1,19 @@
+pkgname=dreamm
+pkgver=2.1.2
+pkgrel=1
+pkgdesc="A bespoke emulator for LucasArts games"
+arch=('x86_64')
+url="https://aarongiles.com/dreamm/"
+license=('custom')
+depends=('sdl2' 'fluidsynth')
+source=("https://aarongiles.com/dreamm/releases/dreamm-$pkgver-linux-x64.tgz")
+sha256sums=('SKIP')
+
+package() {
+  cd ..
+  install -Dm755 dreamm.desktop $pkgdir/usr/share/applications/dreamm.desktop
+  install -Dm755 dreamm.ico $pkgdir/usr/share/icons/dreamm.ico
+  cd "$srcdir"
+  install -Dm755 dreamm "$pkgdir/usr/bin/dreamm"
+  install -Dm755 mt32emu-dreamm.so "$pkgdir/usr/lib/mt32emu-dreamm.so"
+} 
