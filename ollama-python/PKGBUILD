@@ -1,0 +1,21 @@
+pkgname=ollama-python
+pkgver=0.1.6
+pkgrel=1
+pkgdesc="Ollama Python library"
+arch=('any')
+url="https://github.com/ollama/ollama-python"
+license=('MIT')
+depends=('python')
+makedepends=('python-setuptools')
+source=("https://github.com/ollama/ollama-python/releases/download/v$pkgver/ollama-$pkgver.tar.gz")
+sha256sums=('SKIP')
+
+build() {
+  cd "$srcdir/ollama-$pkgver"
+  python -m build --wheel
+}
+
+package() {
+  cd "$srcdir/ollama-$pkgver"
+  python -m pip install --no-deps --ignore-installed --root="$pkgdir/" dist/*.whl
+}
