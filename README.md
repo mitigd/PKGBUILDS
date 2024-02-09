@@ -1,3 +1,3 @@
 # Personal Collection of PKGBUILDS
-- Dreamm
-- ollama-python
+- [Dreamm](https://aarongiles.com/dreamm/)
+- [ollama-python](https://github.com/ollama/ollama-python)
